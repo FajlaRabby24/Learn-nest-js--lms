@@ -32,4 +32,10 @@ export class UserService {
     const user = this.userModel.findOne({ email });
     return user;
   }
+
+  // * find user by id
+  async findUserById(id: string) {
+    const user = this.userModel.findOne({ _id: id }).select('-password');
+    return user;
+  }
 }
